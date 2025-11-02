@@ -1,4 +1,27 @@
-# Restaurant Management System
+# 🍽️ Restaurant Management System
+
+A full-stack web application built with **React**, **Node.js (Express)**, and **PostgreSQL (via Prisma ORM)**.  
+Developed as part of my portfolio to demonstrate modern software development and database integration skills.
+
+### 🌟 Current Progress
+✅ Project structure (frontend + backend + Docker + Prisma)  
+✅ Authentication system with JWT + bcryptjs  
+⬜ Menu management CRUD  
+⬜ Reservations CRUD  
+⬜ Dashboard analytics  
+
+### 🧰 Tech Stack
+**Frontend:** React (Vite) + TypeScript + TailwindCSS  
+**Backend:** Node.js + Express + TypeScript  
+**Database:** PostgreSQL + Prisma ORM  
+**Auth:** JWT tokens + HttpOnly cookies  
+**DevOps:** Docker Compose, ESLint, Prettier
+
+---
+
+🧑‍🍳 Built by [Kajetan Kwiatkowski](https://github.com/Kajtekcode) – aspiring Bitcoin-focused software developer.
+
+
 
 A full-stack web application for managing restaurant operations, including menu management, reservations, and daily reports.
 
