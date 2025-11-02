@@ -1,0 +1,34 @@
+# Restaurant Management System
+
+A full-stack web application for managing restaurant operations, including menu management, reservations, and daily reports.
+
+## Stack
+- **Frontend**: React, Vite, TypeScript, TailwindCSS
+- **Backend**: Node.js, Express, Prisma, PostgreSQL
+- **Authentication**: JWT
+- **Containerization**: Docker Compose
+
+## Setup Instructions
+
+1. **Clone the repository** (if applicable).
+2. **Install dependencies**:
+   - Frontend: `cd client && npm install`
+   - Backend: `cd server && npm install`
+3. **Set up environment variables**:
+   - Copy `server/.env.example` to `server/.env` and fill in values (e.g., DATABASE_URL, JWT_SECRET).
+4. **Run Docker Compose**:
+   - `docker-compose up -d` to start PostgreSQL and backend.
+5. **Apply Prisma migrations**:
+   - `cd server && npx prisma migrate dev`
+6. **Start development servers**:
+   - Frontend: `cd client && npm run dev` (runs on http://localhost:5173)
+   - Backend: `cd server && npm run dev` (runs on http://localhost:5000)
+
+## Features
+- User Authentication
+- Menu Management (CRUD)
+- Reservation System
+- Daily Reports
+- Admin Dashboard
+
+For detailed development steps, see the project documentation or contact the developer.
