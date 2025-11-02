@@ -14,6 +14,9 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
 
+import menuRoutes from './routes/menuRoutes';
+app.use('/api/menu', menuRoutes);
+
 // Add routes here later
 
 export default app;
