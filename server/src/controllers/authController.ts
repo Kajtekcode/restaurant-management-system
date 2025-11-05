@@ -62,3 +62,15 @@ export const logout = (req: Request, res: Response) => {
   res.cookie('jwt', '', { maxAge: 1 });
   res.json({ message: 'Logged out successfully' });
 };
+
+export const getMe = (req: Request, res: Response) => {
+  if (req.user) {
+    res.json({
+      id: req.user.id,
+      name: req.user.name,
+      email: req.user.email,
+    });
+  } else {
+    res.status(401).json({ message: 'Not authorized' });
+  }
+};
