@@ -6,7 +6,7 @@ Developed as part of my portfolio to demonstrate modern software development and
 ### 🌟 Current Progress
 ✅ Project structure (frontend + backend + Docker + Prisma)  
 ✅ Authentication system with JWT + bcryptjs  
-⬜ Menu management CRUD  
+✅ Menu management CRUD  
 ⬜ Reservations CRUD  
 ⬜ Dashboard analytics  
 
