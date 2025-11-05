@@ -1,42 +1,94 @@
+/* ──────────────────────────────────────────────────────────────
+   GLOBAL LAYOUT – keep the same #root constraints
+   ────────────────────────────────────────────────────────────── */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  /* Dark gradient background – matches the rest of the app */
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  min-height: 100vh;
 }
 
+/* ──────────────────────────────────────────────────────────────
+   LOGO – animated glow + hover pulse
+   ────────────────────────────────────────────────────────────── */
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+  will-change: filter, transform;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: drop-shadow(0 0 0.5rem rgba(100, 108, 255, 0.4));
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 1.5rem rgba(100, 108, 255, 0.8));
+  transform: scale(1.08);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 1.5rem rgba(97, 218, 251, 0.8));
 }
 
+/* Spin animation – only when motion is allowed */
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-spin 20s linear infinite;
   }
 }
 
+/* ──────────────────────────────────────────────────────────────
+   CARD – glassmorphic panel (used by any .card element)
+   ────────────────────────────────────────────────────────────── */
 .card {
   padding: 2em;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* ──────────────────────────────────────────────────────────────
+   HELP TEXT – subtle, readable in dark mode
+   ────────────────────────────────────────────────────────────── */
 .read-the-docs {
-  color: #888;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   OPTIONAL: make any button inside the app match the neon theme
+   ────────────────────────────────────────────────────────────── */
+button {
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(135deg, #0ea5e9, #7c3aed);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+button:hover {
+  background: linear-gradient(135deg, #38bdf8, #a78bfa);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+button:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
 }

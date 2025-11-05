@@ -1,3 +1,6 @@
+/* ──────────────────────────────────────────────────────────────
+   GLOBAL TYPOGRAPHY & COLOR SCHEME
+   ────────────────────────────────────────────────────────────── */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -5,7 +8,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0f172a;               /* deep dark base */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,56 +16,143 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ──────────────────────────────────────────────────────────────
+   LINKS – neon accent
+   ────────────────────────────────────────────────────────────── */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #60a5fa;                         /* cyan-400 */
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 a:hover {
-  color: #535bf2;
+  color: #38bdf8;                         /* cyan-300 */
 }
 
+/* ──────────────────────────────────────────────────────────────
+   BODY – neutral container (no flex centering)
+   ────────────────────────────────────────────────────────────── */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
+/* ──────────────────────────────────────────────────────────────
+   HEADINGS
+   ────────────────────────────────────────────────────────────── */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  background: linear-gradient(to right, #67e8f9, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
+/* ──────────────────────────────────────────────────────────────
+   BUTTONS – neon gradient + lift
+   ────────────────────────────────────────────────────────────── */
 button {
-  border-radius: 8px;
+  border-radius: 0.75rem;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background: linear-gradient(135deg, #0ea5e9, #7c3aed);
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 button:hover {
-  border-color: #646cff;
+  background: linear-gradient(135deg, #38bdf8, #a78bfa);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
 }
 
+/* ──────────────────────────────────────────────────────────────
+   LIGHT-MODE OVERRIDE (keeps the same structure)
+   ────────────────────────────────────────────────────────────── */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #f8fafc;
   }
   a:hover {
-    color: #747bff;
+    color: #5b21b6;
   }
   button {
-    background-color: #f9f9f9;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
   }
+  button:hover {
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   OPTIONAL: keep the original Vite demo classes (logo, card, …)
+   ────────────────────────────────────────────────────────────── */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Glassmorphic card (if you use .card anywhere) */
+.card {
+  padding: 2em;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Logo glow */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter, transform;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  filter: drop-shadow(0 0 0.5rem rgba(100, 108, 255, 0.4));
+}
+.logo:hover {
+  filter: drop-shadow(0 0 1.5rem rgba(100, 108, 255, 0.8));
+  transform: scale(1.08);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 1.5rem rgba(97, 218, 251, 0.8));
+}
+
+/* Spin animation */
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin 20s linear infinite;
+  }
+}
+
+/* Docs text */
+.read-the-docs {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  margin-top: 1rem;
 }

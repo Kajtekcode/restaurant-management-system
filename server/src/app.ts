@@ -17,6 +17,10 @@ app.use('/api/auth', authRoutes);
 import menuRoutes from './routes/menuRoutes';
 app.use('/api/menu', menuRoutes);
 
+import reservationRoutes from './routes/reservationRoutes';
+import { protect } from './middlewares/authMiddleware';
+app.use('/api/reservations', protect, reservationRoutes);
+
 // Add routes here later
 
 export default app;
